@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Kanye West Quote!</title>
+</head>
+<body>
+    <div>
+        <h1> Kanye West Quote </h1>
+    </div>
+    <div> 
+        <button onclick ="myFunction()"> click me!</button>
+        <script>
+            function myFunction() {
+                var request = new XMLHttpRequest();
+request.open('GET', ' https://api.kanye.rest/?mode=json',false);
+request.send();
+console.log(request.response);
+//console.log((request));
+var len=request.response.length;
+console.log(len);
+var text=[''];
+for (let i = 10; i < (len-2); i++) {
+    text += request.response[i] ;
+  }
+              document.getElementById("print").innerHTML = (text);
+            }
+            </script>
+            <p id="print"></p>
+    </div>
+</body>
+
+</html>
